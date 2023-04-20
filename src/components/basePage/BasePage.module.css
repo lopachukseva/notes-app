@@ -1,0 +1,35 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+.headerList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #373737;
+    border-radius: 40px;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+.headerList li {
+    list-style: none;
+    font-size: 1.5em;
+}
+
+.headerLink {
+    text-decoration: none;
+    color: white;
+}
+
+.headerLink:hover {
+    color: rgb(197, 194, 194);
+}
+
+.headerLink:active {
+    filter: brightness(80%);
+}
