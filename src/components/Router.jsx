@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from "./Login/Login"
 import NotesList from "./notesList/NotesList"
+import NoteDetail from "./noteDetail/NoteDetail"
 
 const Router = () => {
     return (
@@ -8,6 +9,7 @@ const Router = () => {
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/notes" element={<NotesList />} />
+                <Route path="/detail" element={<NoteDetail />} />
             </Routes>
         </BrowserRouter>
     )
