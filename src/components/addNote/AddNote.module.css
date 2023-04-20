@@ -1,0 +1,67 @@
+.newNoteForm {
+    margin-top: 40px;
+    width: 90%;
+}
+
+
+.newNoteForm input, textarea{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 1em;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    padding: 0 15px;
+    box-shadow: 0 0 15px 4px rgba(128, 128, 128, 0.06);
+    transition: box-shadow 0.15s ease-in-out;
+    background-clip: padding-box;
+}
+
+
+.newNoteForm input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.742);
+}
+
+.newNoteForm textarea:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.742);
+}
+
+
+.noteTitle {
+    height: 40px;
+}
+
+.noteText {
+    height: 90px;
+    padding-top: 15px;
+    resize: none;
+}
+
+.addbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    background-color: #fe4d00;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 20px;
+}
+
+.addbtn:hover {
+    filter: brightness(120%);
+}
+
+.addbtn:active {
+    filter: brightness(80%);
+}
