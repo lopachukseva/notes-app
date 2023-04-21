@@ -1,0 +1,31 @@
+
+.btn {
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: #fe4d00;
+    color: white;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    user-select: none;
+    width: 30px;
+    height: 30px;
+}
+
+
+.btn:hover {
+   filter: brightness(120%);
+}
+
+
+.btn:active {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.742);
+}
