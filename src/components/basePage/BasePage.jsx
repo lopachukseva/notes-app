@@ -7,7 +7,7 @@ const BasePage = ({ children }) => {
         <div className={classes.wrapper}>
             <header>
                 <ul className={classes.headerList}>
-                    <li><Link to={'/notes'} className={classes.headerLink}>Notes App</Link></li>
+                    <li><Link to={'/notes'} className={`${classes.headerLink} ${classes.orange}`}>Notes App</Link></li>
                     <li><Link to={'/login'} className={classes.headerLink}>Login</Link></li>
                 </ul>
             </header>
