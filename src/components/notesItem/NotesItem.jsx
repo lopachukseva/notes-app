@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import IntfButton from '../ui/IntfButton';
 import classes from './NotesItem.module.css'
 
@@ -14,8 +15,12 @@ const NotesItem = ({note}) => {
     }
 
 
+    const nav = useNavigate()
+
+
     const openDetail = () => {
         console.log('Open detail')
+        nav('/detail')
     }
 
     return (
