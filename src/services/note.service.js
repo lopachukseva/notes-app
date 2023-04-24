@@ -16,13 +16,33 @@ export const NoteService = {
     },
 
     async postNote(data) {
-        axios.post('http://127.0.0.1:8000/api/notes/', data)
+        const response = await axios.post('http://127.0.0.1:8000/api/notes/', data)
             .then(function (response) {
                 console.log(response);
             })
             .catch(function (error) {
                 console.log(error);
             });
-    }
+
+        return response
+    },
+
+
+    async putNote(id, data) {
+        const response = await axios.patch(`http://127.0.0.1:8000/api/notes/${id}`, data);
+
+        return response.data
+    },
+    
+
+    async deleteNote(id) {
+        const response = await axios.delete(`http://127.0.0.1:8000/api/notes/${id}`)
+        .then(function (response) {
+            return response;
+        });
+
+        return response
+    },
+
 
 }

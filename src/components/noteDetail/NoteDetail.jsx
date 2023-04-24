@@ -26,6 +26,14 @@ const NoteDetail = () => {
         }, [id])
 
     
+    const putNote = () => {
+        const new_title = note.title
+        const new_text = note.text
+        console.log(new_text)
+        const response = NoteService.putNote(note.id, {title: new_title, text: new_text}).then(() => nav('/notes'))
+        console.log(response)
+
+    }
     
 
     return (
@@ -37,12 +45,12 @@ const NoteDetail = () => {
                         className={classes.noteTitle}
 
                     />
-                    <textarea value={note.text} onChange={(e) => setNote(prev => ({ ...prev, text: e.target.text }))}
+                    <textarea value={note.text} onChange={(e) => setNote(prev => ({ ...prev, text: e.target.value }))}
                         className={classes.noteText}
                     />
                     <div className={classes.btnContainer}>
                         <div className={classes.btn} onClick={() => nav('/notes')}>Exit</div>
-                        <div className={classes.btn}>Confirm</div>
+                        <div className={classes.btn} onClick={putNote}>Confirm</div>
                     </div>
 
                 </form>

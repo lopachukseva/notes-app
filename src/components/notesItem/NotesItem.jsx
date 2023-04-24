@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import IntfButton from '../ui/IntfButton';
 import classes from './NotesItem.module.css'
-
+import { NoteService } from '../../services/note.service'
 
 
 const NotesItem = ({note}) => {
@@ -21,6 +21,12 @@ const NotesItem = ({note}) => {
     const openDetail = () => {
         console.log('Open detail')
         nav(`/note/${note.id}`)
+    }
+
+    const deleteNote = () => {
+        console.log("delete!")
+        NoteService.deleteNote(note.id)
+        
     }
 
     return (
