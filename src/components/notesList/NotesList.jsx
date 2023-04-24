@@ -27,7 +27,7 @@ const NotesList = () => {
         }
 
         fetchData()
-    }, [])
+    }, [notes])
 
 
     const [newNoteActive, setNewNoteActive] = useState(false)
