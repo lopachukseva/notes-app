@@ -20,7 +20,7 @@ const NotesItem = ({note}) => {
 
     const openDetail = () => {
         console.log('Open detail')
-        nav('/detail')
+        nav(`/note/${note.id}`)
     }
 
     return (

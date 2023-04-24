@@ -1,8 +1,9 @@
 import NotesItem from '../notesItem/NotesItem'
 import AddNote from '../addNote/AddNote.jsx'
 import classes from './NotesList.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BasePage from '../basePage/BasePage'
+import { NoteService } from '../../services/note.service'
 
 
 const NotesList = () => {
@@ -17,11 +18,24 @@ const NotesList = () => {
         { id: 5, title: "My fourth note", text: "Something" }])
 
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await NoteService.getAll()
+
+            setNotes(data)
+            console.log(data)
+        }
+
+        fetchData()
+    }, [])
+
+
     const [newNoteActive, setNewNoteActive] = useState(false)
 
 
     const addNewNote = ({ title, text }) => {
         setNotes(prev => ([...prev, { id: notes.length + 1, title: title, text: text }]))
+        NoteService.postNote({ title: title, text: text })
     }
 
 
