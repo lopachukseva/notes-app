@@ -5,6 +5,7 @@ import BasePage from '../basePage/BasePage'
 
 
 const Login = () => {
+    
     const [inputData, setInputData] = useState({ login: '', password: '' })
 
     const logIn = (e) => {
