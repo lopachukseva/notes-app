@@ -34,6 +34,11 @@ const NoteDetail = () => {
         console.log(response)
 
     }
+
+
+    const deleteNote = () => {
+        NoteService.deleteNote(note.id).then(() => nav('/notes'))
+    }
     
 
     return (
@@ -50,6 +55,7 @@ const NoteDetail = () => {
                     />
                     <div className={classes.btnContainer}>
                         <div className={classes.btn} onClick={() => nav('/notes')}>Exit</div>
+                        <div className={classes.btn} onClick={deleteNote}>Delete</div>
                         <div className={classes.btn} onClick={putNote}>Confirm</div>
                     </div>
 
