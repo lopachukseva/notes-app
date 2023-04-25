@@ -24,6 +24,11 @@
 }
 
 
+.noteswindow h3 {
+    color: white;
+}
+
+
 .btnContainer {
     width: 90%;
     display: flex;
