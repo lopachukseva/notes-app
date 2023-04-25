@@ -35,14 +35,14 @@ export const NoteService = {
     },
     
 
-    async deleteNote(id) {
-        const response = await axios.delete(`http://127.0.0.1:8000/api/notes/${id}`)
-        .then(function (response) {
-            return response;
-        });
+    // async deleteNote(id) {
+    //     const response = await axios.delete(`http://127.0.0.1:8000/api/notes/${id}`)
+    //     .then(function (response) {
+    //         return response;
+    //     });
 
-        return response
-    },
+    //     return response
+    // },
 
 
 }

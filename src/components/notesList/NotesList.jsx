@@ -35,8 +35,9 @@ const NotesList = () => {
 
 
 
-    const addNewNote = ({ title, text }) => {
-        NoteService.postNote({ title: title, text: text }).then(setPage(page+1))
+    const addNewNote = async ({ title, text }) => {
+        let response = await NoteService.postNote({ title: title, text: text })
+        setPage(page+1)
     }
 
 
@@ -50,7 +51,7 @@ const NotesList = () => {
                         <NotesItem key={note.id} note={note} />
                     ))
 
-                        : <p>No notes</p>
+                        : <h3>No notes</h3>
 
                     }
 
