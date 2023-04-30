@@ -1,28 +1,34 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import classes from './Login.module.css'
 import { Link } from 'react-router-dom'
 import BasePage from '../basePage/BasePage'
 import { NoteService } from '../../services/note.service'
+import { AuthContext } from '../../providers/AuthProvider'
 
 
 const Login = () => {
     
     const [inputData, setInputData] = useState({ login: '', password: '' })
-    const [token, setToken] = useState('')
     const [loginErr, setLoginErr] = useState('')
+
+    const {user, setUser, token, setToken} = useContext(AuthContext)
+
+
+
+    const getToken = async (login_data) => {
+        const response = await NoteService.login(login_data);
+        return response.auth_token
+        
+    }
 
     const logIn = async (e) => {
         e.preventDefault()
         const login_data = {username: inputData.login, password: inputData.password};
-        const response = await NoteService.login(login_data);
+        
+        const auth_token = await getToken(login_data)
+        console.log(auth_token)
     
-        setToken(response.auth_token)
-        
-        console.log(token)
-        
-        // console.log(response.auth_token)
-        // setToken(response.auth_token)
-        // console.log(token)
+        setToken(auth_token)
     }
 
     return (
