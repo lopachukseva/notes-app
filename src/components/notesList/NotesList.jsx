@@ -1,12 +1,20 @@
 import NotesItem from '../notesItem/NotesItem'
 import AddNote from '../addNote/AddNote.jsx'
 import classes from './NotesList.module.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import BasePage from '../basePage/BasePage'
 import { NoteService } from '../../services/note.service'
+import { AuthContext } from '../../providers/AuthProvider'
+import { Navigate } from 'react-router-dom'
 
 
 const NotesList = () => {
+
+    const {token} = useContext(AuthContext)
+
+    if (!token) {
+        return <Navigate replace to="/login" />;
+    }
 
     const sample = [
         { id: 1, title: "Hello!", text: "Hello!" },

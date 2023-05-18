@@ -1,11 +1,18 @@
 import classes from './NoteDetail.module.css'
 import BasePage from '../basePage/BasePage'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Navigate } from 'react-router-dom'
 import { NoteService } from '../../services/note.service'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { AuthContext } from '../../providers/AuthProvider'
 
 
 const NoteDetail = () => {
+
+    const {token} = useContext(AuthContext)
+
+    if (!token) {
+        return <Navigate replace to="/login" />;
+    }
 
     const nav = useNavigate()
 
