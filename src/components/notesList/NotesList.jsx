@@ -28,7 +28,7 @@ const NotesList = () => {
     const [page, setPage] = useState(0)
 
     const fetchNotes = async () => {
-        const data = await NoteService.getAll()
+        const data = await NoteService.getAll(token)
         setNotes(data)
         console.log(data)
     }
@@ -44,7 +44,7 @@ const NotesList = () => {
 
 
     const addNewNote = async ({ title, text }) => {
-        let response = await NoteService.postNote({ title: title, text: text })
+        let response = await NoteService.postNote({ title: title, text: text }, token)
         setPage(page+1)
     }
 

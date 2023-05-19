@@ -2,8 +2,10 @@ import axios from "axios"
 
 export const NoteService = {
 
-    async getAll() {
-        const response = await axios.get('http://127.0.0.1:8000/api/notes/')
+    async getAll(token) {
+        const response = await axios.get('http://127.0.0.1:8000/api/notes/', {headers: {
+            Authorization: `Token ${token}`
+            }})
 
         return response.data
     },
@@ -15,8 +17,10 @@ export const NoteService = {
         return response.data
     },
 
-    async postNote(data) {
-        const response = await axios.post('http://127.0.0.1:8000/api/notes/', data)
+    async postNote(data, token) {
+        const response = await axios.post('http://127.0.0.1:8000/api/notes/', data, {headers: {
+            Authorization: `Token ${token}`
+            }})
             .then(function (response) {
                 console.log(response);
             })
