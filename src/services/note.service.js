@@ -11,8 +11,10 @@ export const NoteService = {
     },
 
 
-    async getByID(id) {
-        const response = await axios.get(`http://127.0.0.1:8000/api/notes/${id}`)
+    async getByID(id, token) {
+        const response = await axios.get(`http://127.0.0.1:8000/api/notes/${id}`, {headers: {
+            Authorization: `Token ${token}`
+            }})
 
         return response.data
     },

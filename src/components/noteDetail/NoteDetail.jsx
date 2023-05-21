@@ -24,7 +24,7 @@ const NoteDetail = () => {
         if (!id) return
     
             const fetchData = async () => {
-                const data = await NoteService.getByID(id)
+                const data = await NoteService.getByID(id, token)
     
                 setNote(data)
             }
