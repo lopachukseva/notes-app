@@ -34,15 +34,19 @@ export const NoteService = {
     },
 
 
-    async putNote(id, data) {
-        const response = await axios.patch(`http://127.0.0.1:8000/api/notes/${id}`, data);
+    async putNote(id, data, token) {
+        const response = await axios.patch(`http://127.0.0.1:8000/api/notes/${id}`, data, {headers: {
+            Authorization: `Token ${token}`
+            }});
 
         return response.data
     },
     
 
-    async deleteNote(id) {
-        const response = await axios.delete(`http://127.0.0.1:8000/api/notes/${id}`)
+    async deleteNote(id, token) {
+        const response = await axios.delete(`http://127.0.0.1:8000/api/notes/${id}`, {headers: {
+            Authorization: `Token ${token}`
+            }})
         .then(function (response) {
             console.log(response);
         });

@@ -37,14 +37,14 @@ const NoteDetail = () => {
         const new_title = note.title
         const new_text = note.text
         console.log(new_text)
-        const response = NoteService.putNote(note.id, {title: new_title, text: new_text}).then(() => nav('/notes'))
+        const response = NoteService.putNote(note.id, {title: new_title, text: new_text}, token).then(() => nav('/notes'))
         console.log(response)
 
     }
 
 
     const deleteNote = () => {
-        NoteService.deleteNote(note.id).then(() => nav('/notes'))
+        NoteService.deleteNote(note.id, token).then(() => nav('/notes'))
     }
     
 
