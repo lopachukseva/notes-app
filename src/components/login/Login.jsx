@@ -25,14 +25,9 @@ const Login = () => {
     const logIn = async (e) => {
         e.preventDefault()
         const login_data = { username: inputData.login, password: inputData.password };
-
         const auth_token = await getToken(login_data)
-        console.log(auth_token)
 
         setToken(auth_token)
-
-
-
     }
 
     return (

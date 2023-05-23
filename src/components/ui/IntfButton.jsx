@@ -7,10 +7,10 @@ const IntfButton = ({children}) => {
         e.stopPropagation()
     }
 
-
     return (
         <div className={classes.btn}  onClick={(e) => deteleItem(e)}>{children}</div>
     )
 }
+
 
 export default IntfButton

@@ -5,7 +5,6 @@ import { AuthContext } from '../../providers/AuthProvider'
 
 
 const BasePage = ({ children }) => {
-
     const { token } = useContext(AuthContext);
 
     return (
@@ -16,7 +15,6 @@ const BasePage = ({ children }) => {
                     {token ? <li><Link to={'/logout'} className={classes.headerLink}>Logout</Link></li>
                         : <li><Link to={'/login'} className={classes.headerLink}>Login</Link></li>
                     }
-
                 </ul>
             </header>
             <main>

@@ -3,15 +3,12 @@ import classes from './AddNote.module.css'
 
 
 const AddNote = ({ setNewNoteActive, addNewNote }) => {
-
     const [newNote, setNewNote] = useState({ title: '', text: '' })
-
 
     const createNewNote = (e) => {
         setNewNoteActive(false)
         addNewNote(newNote)
     }
-
 
     return (
         <form className={classes.newNoteForm}>

@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Login from "./Login/Login"
+import Login from "./login/Login"
 import Logout from "./Logout"
 import NotesList from "./notesList/NotesList"
 import NoteDetail from "./noteDetail/NoteDetail"
-import BasePage from "./basePage/BasePage"
 
 const Router = () => {
     return (

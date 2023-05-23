@@ -4,11 +4,9 @@
   font-family: 'Roboto', sans-serif;
 }
 
-
 #root {
   background-color: #212121;
 }
-
 
 input[type="text"] {
   font-family: inherit;

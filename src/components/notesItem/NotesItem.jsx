@@ -14,9 +14,7 @@ const NotesItem = ({note}) => {
         return note.title
     }
 
-
     const nav = useNavigate()
-
 
     const openDetail = () => {
         console.log('Open detail')

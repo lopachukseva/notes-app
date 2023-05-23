@@ -3,7 +3,6 @@
     width: 90%;
 }
 
-
 .newNoteForm input, textarea{
     box-sizing: border-box;
     width: 100%;
@@ -18,7 +17,6 @@
     transition: box-shadow 0.15s ease-in-out;
     background-clip: padding-box;
 }
-
 
 .newNoteForm input:focus {
     color: #212529;
@@ -35,7 +33,6 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.742);
 }
-
 
 .noteTitle {
     height: 40px;

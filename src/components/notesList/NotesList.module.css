@@ -23,11 +23,9 @@
     margin-bottom: 20px;
 }
 
-
 .noteswindow h3 {
     color: white;
 }
-
 
 .btnContainer {
     width: 90%;
@@ -49,7 +47,6 @@
     margin-top: 30px;
     user-select: none;
 }
-
 
 .addbtn:hover {
     filter: brightness(120%);

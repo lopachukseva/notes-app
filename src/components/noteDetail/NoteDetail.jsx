@@ -7,7 +7,6 @@ import { AuthContext } from '../../providers/AuthProvider'
 
 
 const NoteDetail = () => {
-
     const {token} = useContext(AuthContext)
 
     if (!token) {
@@ -15,7 +14,6 @@ const NoteDetail = () => {
     }
 
     const nav = useNavigate()
-
 
     const {id} = useParams()
     const [note, setNote] = useState({})
@@ -32,7 +30,6 @@ const NoteDetail = () => {
             fetchData()
         }, [id])
 
-    
     const putNote = () => {
         const new_title = note.title
         const new_text = note.text
@@ -42,12 +39,10 @@ const NoteDetail = () => {
 
     }
 
-
     const deleteNote = () => {
         NoteService.deleteNote(note.id, token).then(() => nav('/notes'))
     }
     
-
     return (
         <BasePage>
             <div className={classes.wrapper}>
