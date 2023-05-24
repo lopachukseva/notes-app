@@ -7,26 +7,32 @@ import { AuthService } from '../../services/auth.service'
 const Register = () => {
 
     const [inputData, setInputData] = useState({login: '', email: '', password: ''})
+    const [user, setUser] = useState('')
+
+    if (user) {
+        return <Navigate replace to="/login" />;
+    }
 
     const regUser = async (reg_data) => {
         const response = await AuthService.reg(reg_data);
-        return response
+        return response.id
     }
 
     const reg = async (e) => {
         e.preventDefault()
         const reg_data = { username: inputData.login, email: inputData.email, password: inputData.password };
 
-        const resp = await regUser(reg_data)
+        const response_id = await regUser(reg_data)
         
-        console.log(resp.id)
+        setUser(response_id)
+        console.log(user)
     }
 
     return (
        <BasePage>
             <div className={classes.wrapper}>
                 <form className={classes.form}>
-                    <h1>Registration</h1>
+                    <h1>Create account</h1>
                     <input
                         placeholder='login'
                         value={inputData.login}
@@ -43,7 +49,7 @@ const Register = () => {
                         value={inputData.password}
                         onChange={(e) => setInputData(prev => ({ ...prev, password: e.target.value }))}
                     />
-                    <Link className={classes.linkbtn} onClick={(e) => reg(e)}>Login!</Link>
+                    <Link className={classes.linkbtn} onClick={(e) => reg(e)}>Create account</Link>
                 </form>
             </div>
         </BasePage>

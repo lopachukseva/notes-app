@@ -16,7 +16,7 @@ const BasePage = ({ children }) => {
                         : <li><Link to={'/login'} className={classes.headerLink}>Login</Link></li>
                     }
                     {token ? <></>
-                        : <li><Link to={'/register'} className={classes.headerLink}>Registration</Link></li>
+                        : <li><Link to={'/register'} className={classes.headerLink}>Create account</Link></li>
                     }
                 </ul>
             </header>

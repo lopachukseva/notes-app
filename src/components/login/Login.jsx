@@ -46,7 +46,7 @@ const Login = () => {
                         value={inputData.password}
                         onChange={(e) => setInputData(prev => ({ ...prev, password: e.target.value }))}
                     />
-                    <Link className={classes.linkbtn} onClick={(e) => logIn(e)}>Login!</Link>
+                    <Link className={classes.linkbtn} onClick={(e) => logIn(e)}>Login</Link>
                 </form>
             </div>
         </BasePage>
