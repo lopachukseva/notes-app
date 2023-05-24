@@ -1,17 +1,25 @@
 import { useState } from "react"
 import classes from './Register.module.css'
 import BasePage from "../basePage/BasePage"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
+import { AuthService } from '../../services/auth.service'
 
 const Register = () => {
 
     const [inputData, setInputData] = useState({login: '', email: '', password: ''})
 
+    const regUser = async (reg_data) => {
+        const response = await AuthService.reg(reg_data);
+        return response
+    }
+
     const reg = async (e) => {
         e.preventDefault()
         const reg_data = { username: inputData.login, email: inputData.email, password: inputData.password };
 
-        // const resp = await regUser(reg_data)
+        const resp = await regUser(reg_data)
+        
+        console.log(resp.id)
     }
 
     return (
