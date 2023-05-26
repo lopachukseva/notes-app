@@ -2,7 +2,7 @@ import { useContext, useState, useNavigate } from 'react'
 import classes from './Login.module.css'
 import { Link, Navigate } from 'react-router-dom'
 import BasePage from '../basePage/BasePage'
-import { NoteService } from '../../services/note.service'
+import { AuthService } from '../../services/auth.service'
 import { AuthContext } from '../../providers/AuthProvider'
 
 
@@ -17,7 +17,7 @@ const Login = () => {
     }
 
     const getToken = async (login_data) => {
-        const response = await NoteService.login(login_data);
+        const response = await AuthService.login(login_data);
         return response.auth_token
 
     }
