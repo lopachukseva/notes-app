@@ -24,10 +24,23 @@ const Login = () => {
 
     const logIn = async (e) => {
         e.preventDefault()
-        const login_data = { username: inputData.login, password: inputData.password };
-        const auth_token = await getToken(login_data)
 
-        setToken(auth_token)
+        try {
+            const login_data = { username: inputData.login, password: inputData.password };
+            const auth_token = await getToken(login_data)
+            setToken(auth_token)
+        } catch (err) {
+            if (!err?.response) {
+              setLoginErr("No Server Response");
+            } else if (err.response?.status === 400) {
+              setLoginErr("Wrong username or password");
+            } else if (err.response?.status === 401) {
+              setLoginErr("Unauthorized");
+            } else {
+              setLoginErr("Login Failed");
+            }
+          }
+        
     }
 
     return (
@@ -35,6 +48,7 @@ const Login = () => {
             <div className={classes.wrapper}>
                 <form className={classes.form}>
                     <h1>Login</h1>
+                    <p className={classes.errors}>{loginErr}</p>
                     <input
                         placeholder='login'
                         value={inputData.login}
