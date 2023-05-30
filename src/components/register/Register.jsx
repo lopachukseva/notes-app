@@ -6,8 +6,9 @@ import { AuthService } from '../../services/auth.service'
 
 const Register = () => {
 
-    const [inputData, setInputData] = useState({login: '', email: '', password: ''})
+    const [inputData, setInputData] = useState({ login: '', email: '', password: '' })
     const [user, setUser] = useState('')
+    const [regErr, setRegErr] = useState('')
 
     if (user) {
         return <Navigate replace to="/login" />;
@@ -20,19 +21,28 @@ const Register = () => {
 
     const reg = async (e) => {
         e.preventDefault()
-        const reg_data = { username: inputData.login, email: inputData.email, password: inputData.password };
 
-        const response_id = await regUser(reg_data)
-        
-        setUser(response_id)
-        console.log(user)
+        try {
+            const reg_data = { username: inputData.login, email: inputData.email, password: inputData.password };
+            const response_id = await regUser(reg_data)
+            setUser(response_id)
+        } catch (err) {
+            if (!err?.response) {
+                setRegErr("No server response");
+            } else if (err.response?.status === 409) {
+                setRegErr("Username taken");
+            } else {
+                setRegErr("Registration failed");
+            }
+        }
     }
 
     return (
-       <BasePage>
+        <BasePage>
             <div className={classes.wrapper}>
                 <form className={classes.form}>
                     <h1>Create account</h1>
+                    <p className={classes.errors}>{regErr}</p>
                     <input
                         placeholder='login'
                         value={inputData.login}
@@ -43,7 +53,7 @@ const Register = () => {
                         value={inputData.email}
                         onChange={(e) => setInputData(prev => ({ ...prev, email: e.target.value }))}
                     />
-                     <input
+                    <input
                         placeholder='password'
                         type='password'
                         value={inputData.password}

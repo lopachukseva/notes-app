@@ -31,16 +31,15 @@ const Login = () => {
             setToken(auth_token)
         } catch (err) {
             if (!err?.response) {
-              setLoginErr("No Server Response");
+              setLoginErr("No server response");
             } else if (err.response?.status === 400) {
               setLoginErr("Wrong username or password");
             } else if (err.response?.status === 401) {
               setLoginErr("Unauthorized");
             } else {
-              setLoginErr("Login Failed");
+              setLoginErr("Login failed");
             }
           }
-        
     }
 
     return (
