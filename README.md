@@ -15,9 +15,10 @@
 <h2> Запуск (локально): </h2>
 <ol>
   <li>Загрузка и запуск кода из репозитория с backend</li>
-  <li>Установка зависимостей: yarn install</li>
-  <li>Запуск тестового сервера: yarn dev</li>
-  <li>localhost:5173/notes - домашняя страница</li>
+  <li>yarn install</li>
+  <li>yarn add axios</li>
+  <li>yarn dev</li>
+  <li>localhost:5173/notes - главная страница</li>
 </ol>
 
 
